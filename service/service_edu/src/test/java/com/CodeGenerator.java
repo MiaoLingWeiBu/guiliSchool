@@ -56,7 +56,7 @@ public class CodeGenerator {
 
         //生成包：com.achang.eduservice
         pc.setModuleName("eduservice"); //模块名
-        pc.setParent("com");
+        pc.setParent("com.atguigu");
 
         //生成包：com.achang.controller
         pc.setController("controller");
