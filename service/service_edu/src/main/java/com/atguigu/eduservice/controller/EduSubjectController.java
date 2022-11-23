@@ -2,6 +2,8 @@ package com.atguigu.eduservice.controller;
 
 
 import com.atguigu.commonutils.R;
+import com.atguigu.eduservice.entity.EduCourse;
+import com.atguigu.eduservice.entity.EduSubject;
 import com.atguigu.eduservice.entity.vo.OneSubject;
 import com.atguigu.eduservice.service.EduSubjectService;
 import io.swagger.annotations.ApiOperation;
@@ -39,6 +41,13 @@ public class EduSubjectController {
     public R showTree(){
         List<OneSubject> list = eduSubjectService.showTree();
         return R.ok().data("list",list);
+    }
+
+    @GetMapping("/getId/{id}")
+    public R getId(@PathVariable String id){
+        EduSubject eduSubject = eduSubjectService.getById(id);
+        String parentId = eduSubject.getParentId();
+        return R.ok().data("parentId",parentId);
     }
 }
 
